@@ -21,7 +21,7 @@ np.random.seed(6)
 
 #  定义字典，便于来解析样本数据集txt
 def Iris_label(s):
-    it={b'222':0, b'111':1}
+    it={b'no':0, b'yes':1}
     return it[s]
 
 class LossHistory(keras.callbacks.Callback):
@@ -81,9 +81,9 @@ def readData(filePath):
     y = np_utils.to_categorical(y_1D,2)
     return x, y, y_1D
 
-train_x, train_y , train_y_1D= readData(r'C:\Users\24753\Desktop\data\测试\总\汶川芦山鲁甸米林.CSV')
-test_x, test_y , test_y_1D= readData(r'C:\Users\24753\Desktop\data\测试\总\data.CSV')
-val_x, val_y, val_y_1D = readData(r'C:\Users\24753\Desktop\data\jzg\data.CSV')
+train_x, train_y , train_y_1D= readData(r'../data_train.CSV')
+test_x, test_y , test_y_1D= readData(r'../data_test.CSV')
+val_x, val_y, val_y_1D = readData(r'../data_val.CSV')
 
 model = Sequential()
 
@@ -160,11 +160,11 @@ plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
 plt.title('Receiver operating characteristic example')
 plt.legend(loc="lower right")
-plt.savefig(r'C:\Users\24753\Desktop\data\AUC曲线\DF\汶川.jpeg', dpi=300)
+plt.savefig(r'../roc.jpeg', dpi=300)
 plt.show()
 
 miou = mean_iou(cm)
 print('==miou:', miou)
-model.save(r'C:\Users\24753\Desktop\landslide\regression\model\other\0727-1CNN.h5')
-dense1_layer_model.save(r'C:\Users\24753\Desktop\landslide\regression\model\other\0727-1CNN-2.h5')
+model.save(r'..\CNN_1.h5')
+dense1_layer_model.save(r'..\CNN_2.h5')
 history.loss_plot('epoch')
