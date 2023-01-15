@@ -6,15 +6,15 @@ from deepforest import CascadeForestClassifier
 np.random.seed(6)
 
 def Iris_label(s):
-    it={b'222':0, b'111':1}
+    it={b'no':0, b'yes':1}
     return it[s]
 
 #训练集与测试集
-path=r"C:\Users\24753\Desktop\论文材料\data\train_data.CSV"
+path=r"../train_data.CSV"
 #验证集
-valpath = r"C:\Users\24753\Desktop\论文材料\data\test_data.CSV"
+valpath = r"../test_data.CSV"
 #训练模型保存路径
-SavePath = r"C:\Users\24753\Desktop\论文材料\data\自训练.pickle"
+SavePath = r"../model.pickle"
 
 #读取数据集（训练集与测试集）
 data=np.loadtxt(path, dtype=float, delimiter=',', converters={10:Iris_label} )
@@ -103,7 +103,7 @@ plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
 plt.title('Receiver operating characteristic example')
 plt.legend(loc="lower right")
-plt.savefig(r'C:\Users\24753\Desktop\DL实验记录\玩.jpeg', dpi=3000)
+plt.savefig(r'..\ROC.jpeg', dpi=3000)
 plt.show()
 
 ###保存模型
