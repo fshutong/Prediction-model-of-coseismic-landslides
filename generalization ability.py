@@ -28,9 +28,9 @@ def readData(filePath):
 
 
 #验证集
-valpath = r"D:\research paper\paper\数据\data.CSV"
+valpath = r"../data.CSV"
 
-val_x, val_y, val_y_1D = readData(r'D:\research paper\paper\数据\data.CSV')
+val_x, val_y, val_y_1D = readData(r'../data.CSV')
 
 
 
@@ -47,7 +47,7 @@ valx = valx.astype(np.uint8)
 valy = valy.astype(np.uint8)
 
 
-model_path_1 =  r"D:\research paper\paper\数据\gcf4.pickle"
+model_path_1 =  r"../gcf4.pickle"
 file_1 = open(model_path_1, "rb")
 model_1 = pickle.load(file_1)
 file_1.close()
@@ -73,7 +73,7 @@ ka1 = cohen_kappa_score(valy, pred1)
 #print(a1, p1, acc1, roc1, f1_score1, cm1, recall_score1)
 
 
-model_path_2 =  r"D:\research paper\paper\论文\DL实验记录\论文图\玩九寨沟.pickle"
+model_path_2 =  r"../gc.pickle"
 file_2 = open(model_path_2, "rb")
 model_2 = pickle.load(file_2)
 file_2.close()
@@ -98,7 +98,7 @@ recall_score2 = recall_score(valy, pred2)
 ka2 = cohen_kappa_score(valy, pred2)
 #print(a2, p2, acc2, roc2, f1_score2, cm2, recall_score2)
 
-model_path_3 =  r"D:\research paper\paper\论文\DL实验记录\论文图\自训练.pickle"
+model_path_3 =  r"../DT.pickle"
 file_3 = open(model_path_3, "rb")
 model_3 = pickle.load(file_3)
 file_3.close()
@@ -123,7 +123,7 @@ recall_score3 = recall_score(valy, pred3)
 ka3 = cohen_kappa_score(valy, pred3)
 #print(a3, p3, acc3, roc3, f1_score3, cm3, recall_score3)
 
-model_path_4 =  r"D:\research paper\paper\数据\MLP.pickle"
+model_path_4 =  r"../MLP.pickle"
 file_4 = open(model_path_4, "rb")
 model_4 = pickle.load(file_4)
 file_4.close()
@@ -160,7 +160,7 @@ def compute_accuracy(real_y,predict_y):
     return accuracy
 
 
-model_path_5 = r'D:\research paper\paper\数据\0727-1CNN.h5'
+model_path_5 = r'../CNN.h5'
 model_5 = load_model(model_path_5)
 prediction5 = model_5.predict(val_x)
 probability5 = [prob[1] for prob in prediction5]
@@ -252,7 +252,7 @@ print(a5,  roc5, ka5,  f1_score5, miou5)
 # plt.ylabel('True Positive Rate', font1)
 # # plt.title('Receiver operating characteristic example')
 # plt.legend(loc="lower right")
-# plt.savefig(r'D:\research paper\paper\数据\合成1.jpeg', dpi=3000)
+# plt.savefig(r'../roc.jpeg', dpi=3000)
 # plt.show()
 #
 # # import matplotlib.pyplot as plt
