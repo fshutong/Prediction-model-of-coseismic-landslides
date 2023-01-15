@@ -6,7 +6,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 from statsmodels.formula.api import ols
 
-df  = pd.read_csv(r'D:\research paper\paper\数据\VIF.CSV')
+df  = pd.read_csv(r'../VIF.CSV')
 df.info(); df.head()
 
 lm = ols('landslide~altitude + slope + aspect + curvature + PGA + PGV + fault + river + lith + land', data=df).fit()
@@ -41,7 +41,7 @@ def heatmap(data, method='pearson', camp='Blues', figsize=(10 ,8)):
     sns.heatmap(data.corr(method=method), xticklabels=data.corr(method=method).columns, yticklabels=data.corr(method=method).columns, cmap=camp, center=0, annot=True,
                 mask = mask)
 
-    plt.savefig(r'D:\research paper\paper\论文\DL实验记录\统计图\线性图.jpeg', dpi=1000)
+    plt.savefig(r'../linear.jpeg', dpi=1000)
 
 
     plt.show()
