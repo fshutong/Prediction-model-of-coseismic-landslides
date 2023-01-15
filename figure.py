@@ -28,9 +28,9 @@ def readData(filePath):
 
 
 #验证集
-valpath = r"D:\research paper\paper\数据\总test.CSV"
+valpath = r"../test.CSV"
 
-val_x, val_y, val_y_1D = readData(r'D:\research paper\paper\数据\总test.CSV')
+val_x, val_y, val_y_1D = readData(r'../test.CSV')
 
 
 
@@ -47,7 +47,7 @@ valx = valx.astype(np.uint8)
 valy = valy.astype(np.uint8)
 
 
-model_path_1 =  r"D:\research paper\paper\数据\DF.pickle"
+model_path_1 =  r"../DF.pickle"
 file_1 = open(model_path_1, "rb")
 model_1 = pickle.load(file_1)
 file_1.close()
@@ -55,7 +55,7 @@ prediction1 = model_1.predict_proba(valx)
 prediction1 = prediction1[:,1]
 roc1 = roc_auc_score(valy, prediction1)
 
-model_path_2 =  r"D:\research paper\paper\数据\RF.pickle"
+model_path_2 =  r"../RF.pickle"
 file_2 = open(model_path_2, "rb")
 model_2 = pickle.load(file_2)
 file_2.close()
@@ -63,7 +63,7 @@ prediction2 = model_2.predict_proba(valx)
 prediction2 = prediction2[:,1]
 roc2 = roc_auc_score(valy, prediction2)
 
-model_path_3 =  r"D:\research paper\paper\数据\DT.pickle"
+model_path_3 =  r"../DT.pickle"
 file_3 = open(model_path_3, "rb")
 model_3 = pickle.load(file_3)
 file_3.close()
@@ -71,7 +71,7 @@ prediction3 = model_3.predict_proba(valx)
 prediction3 = prediction3[:,1]
 roc3 = roc_auc_score(valy, prediction3)
 
-model_path_4 =  r"D:\research paper\paper\数据\MLP.pickle"
+model_path_4 =  r"../MLP.pickle"
 file_4 = open(model_path_4, "rb")
 model_4 = pickle.load(file_4)
 file_4.close()
@@ -79,7 +79,7 @@ prediction4 = model_4.predict_proba(valx)
 prediction4 = prediction4[:,1]
 roc4 = roc_auc_score(valy, prediction4)
 
-model_path_5 = r'D:\research paper\paper\数据\0727-1CNN.h5'
+model_path_5 = r'../1CNN.h5'
 model_5 = load_model(model_path_5)
 prediction5 = model_5.predict(val_x)
 prediction5 = prediction5[:,1]
@@ -138,7 +138,7 @@ plt.ylabel('True Positive Rate', font = font1)
 # plt.title('Receiver operating characteristic example')
 plt.legend(loc="lower right")
 
-plt.savefig(r'D:\research paper\paper\论文\DL实验记录\统计图\测试图.jpeg', dpi=3000)
+plt.savefig(r'../roc.jpeg', dpi=3000)
 plt.show()
 
 # import matplotlib.pyplot as plt
